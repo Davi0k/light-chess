@@ -235,7 +235,7 @@ namespace Evaluates {
     }
 }
 
-class Square {
+export class Square {
     public color: Colors | null; public validation: Function | null;
   
     constructor(
