@@ -36,8 +36,6 @@ export namespace Validator {
 
         const moves: Coordinate[] = square.validation(chessboard, movement.initial);
 
-        console.log(moves);
-
         let index: number = 0;
         
         for(const move in moves) if(moves[move] == movement.final) index = +move;
