@@ -1,7 +1,6 @@
 export enum Colors {
     WHITE,
-    BLACK,
-    EMPTY
+    BLACK
 }
 
 export enum Validations {
@@ -34,21 +33,21 @@ export namespace Validator {
 
         if(square == Pieces.Empty) return Validations.BLANK_SQUARE;
 
-        const moves: Coordinate[] = square.validation(chessboard, movement.initial);
+        const moves: Coordinate[] = square.validation(chessboard, movement.initial, false);
 
-        let index: number = 0;
-        
-        for(const move in moves) if(moves[move] == movement.final) index = +move;
+        const filters: Coordinate[] = Evaluates.filter(chessboard, movement.initial, moves);
 
-        if(index < 0) return Validations.ILLEGAL_MOVE;
+        for(const filter of filters) if(filter.row == movement.final.row && filter.column == movement.final.column) return Validations.LEGAL_MOVE;
 
-        return Validations.LEGAL_MOVE;
+        for(const move of moves) if(move.row == movement.final.row && move.column == movement.final.column) return Validations.KING_ON_CHECK;
+
+        return Validations.ILLEGAL_MOVE;
     }
 
     export function legals(chessboard: Chessboard, coordinate: Coordinate): Coordinate[] {
         const square: Square = chessboard[coordinate.row]?.[coordinate.column];
 
-        const coordinates: Coordinate[] = square.validation(chessboard, coordinate);
+        const coordinates: Coordinate[] = square?.validation?.(chessboard, coordinate, true) || new Array<Coordinate>();
 
         return coordinates;
     }
@@ -77,7 +76,7 @@ export namespace Validator {
 
         for(const row in chessboard)
             for(const column in chessboard[row])
-                if(chessboard[row][column] == piece)
+                if(chessboard[row][column] == piece) 
                     king = { row: +row, column: +column };
 
         const possibilities: Movement[] = Validator.possibilities(chessboard, color ? Colors.WHITE : Colors.BLACK, false);
@@ -89,6 +88,12 @@ export namespace Validator {
         return false;
     }
 }
+
+enum Additives {
+    NEGATIVE = -1,
+    NEUTRAL = 0,
+    POSITIVE = 1
+} 
 
 namespace Evaluates {
     export function pawn(chessboard: Chessboard, coordinate: Coordinate, check: boolean): Coordinate[] {
@@ -134,15 +139,15 @@ namespace Evaluates {
         const row: number = coordinate.row, column: number = coordinate.column;
         const eat: Colors = chessboard[row][column].color ? Colors.WHITE : Colors.BLACK;
 
-        if(chessboard[row + 2]?.[column - 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 2, column: column - 1 });
-        if(chessboard[row + 2]?.[column + 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 2, column: column + 1 });
-        if(chessboard[row - 2]?.[column + 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 2, column: column + 1 });
-        if(chessboard[row - 2]?.[column - 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 2, column: column - 1 });
+        if(chessboard[row + 2]?.[column - 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 2, column: column - 1 });
+        if(chessboard[row + 2]?.[column + 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 2, column: column + 1 });
+        if(chessboard[row - 2]?.[column + 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 2, column: column + 1 });
+        if(chessboard[row - 2]?.[column - 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 2, column: column - 1 });
 
-        if(chessboard[row + 1]?.[column - 2]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column - 2 });
-        if(chessboard[row + 1]?.[column + 2]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column + 2 });
-        if(chessboard[row - 1]?.[column + 2]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column + 2 });
-        if(chessboard[row - 1]?.[column - 2]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column - 2 });
+        if(chessboard[row + 1]?.[column - 2] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column - 2 });
+        if(chessboard[row + 1]?.[column + 2] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column + 2 });
+        if(chessboard[row - 1]?.[column + 2] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column + 2 });
+        if(chessboard[row - 1]?.[column - 2] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column - 2 });
 
         return check ? Evaluates.filter(chessboard, coordinate, coordinates) : coordinates;
     }
@@ -176,15 +181,15 @@ namespace Evaluates {
         const row: number = coordinate.row, column: number = coordinate.column;
         const eat: Colors = chessboard[row][column].color ? Colors.WHITE : Colors.BLACK;
 
-        if(chessboard[row + 1]?.[column]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column });
-        if(chessboard[row - 1]?.[column]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column });
-        if(chessboard[row]?.[column + 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row, column: column + 1 });
-        if(chessboard[row]?.[column - 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row, column: column - 1 });
+        if(chessboard[row + 1]?.[column] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column });
+        if(chessboard[row - 1]?.[column] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column });
+        if(chessboard[row]?.[column + 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row, column: column + 1 });
+        if(chessboard[row]?.[column - 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row, column: column - 1 });
 
-        if(chessboard[row + 1]?.[column - 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column - 1 });
-        if(chessboard[row + 1]?.[column + 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column + 1 });
-        if(chessboard[row - 1]?.[column + 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column + 1 });
-        if(chessboard[row - 1]?.[column - 1]?.color == Colors.EMPTY || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column - 1 });
+        if(chessboard[row + 1]?.[column - 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column - 1 });
+        if(chessboard[row + 1]?.[column + 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row + 1, column: column + 1 });
+        if(chessboard[row - 1]?.[column + 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column + 1 });
+        if(chessboard[row - 1]?.[column - 1] == Pieces.Empty || chessboard[row + 2]?.[column - 1]?.color == eat) coordinates.push({ row: row - 1, column: column - 1 });
 
         return check ? Evaluates.filter(chessboard, coordinate, coordinates) : coordinates;
     }
@@ -199,19 +204,13 @@ namespace Evaluates {
 
             temp[coordinate.row][coordinate.column] = Pieces.Empty;
 
-            const check: boolean = Validator.check(temp, chessboard[coordinate.row][coordinate.column].color ? Colors.WHITE : Colors.BLACK);
+            const check: boolean = Validator.check(temp, chessboard[coordinate.row][coordinate.column].color); 
 
-            if(check) filtered.push(possibility);
+            if(check == false) filtered.push(possibility);
         }
 
         return filtered;
     }
-
-    enum Additives {
-        NEGATIVE = -1,
-        NEUTRAL = 0,
-        POSITIVE = 1
-    } 
 
     export function linear(chessboard: Chessboard, coordinate: Coordinate, additive: { row: Additives, column: Additives }): Coordinate[] {
         const coordinates: Coordinate[] = new Array<Coordinate>();
@@ -236,9 +235,11 @@ namespace Evaluates {
 }
 
 class Square {
-    public color: Colors; public validation: Function | null;
+    public color: Colors | null; public validation: Function | null;
   
-    constructor(color: Colors, validation: Function | null = null) {
+    constructor(
+      color: Colors | null = null, 
+      validation: Function | null = null) {
         this.color = color;
         this.validation = validation;
     }
@@ -261,5 +262,5 @@ export const Pieces = {
         Queen: new Square(Colors.BLACK, Evaluates.queen),
         King: new Square(Colors.BLACK, Evaluates.king),
     },
-    Empty: new Square(Colors.EMPTY)
+    Empty: new Square()
 };
