@@ -63,4 +63,41 @@ export class Chess {
 
     public check = (color: Colors = this.turn): boolean => 
         Validator.check(this.chessboard, color);
+
+    public static ascii(chessboard: Chessboard): string {
+        const emoji = function(piece) {
+            switch(piece) {
+                case Pieces.White.Pawn: return "♙";
+                case Pieces.White.Bishop: return "♗";
+                case Pieces.White.Knight: return "♘";
+                case Pieces.White.Rook: return "♖";
+                case Pieces.White.Queen: return "♕";
+                case Pieces.White.King: return "♔";
+
+                case Pieces.Black.Pawn: return "♟";
+                case Pieces.Black.Bishop: return "♝";
+                case Pieces.Black.Knight: return "♞";
+                case Pieces.Black.Rook: return "♜";
+                case Pieces.Black.Queen: return "♛";
+                case Pieces.Black.King: return "♚";
+
+                case Pieces.Empty: return " ";
+            }
+        };
+
+        let ascii: string = "";
+
+        for(let row = chessboard.length - 1; row >= 0; row--) {
+            let append: string = (row + 1) + " |";
+
+            for(const column in chessboard[row]) 
+                append = append + emoji(chessboard[row][column]) + " |";
+
+            ascii = ascii + append + "\n";
+        }
+
+        ascii = ascii + ("   A  B  C  D  E  F  G  H");
+    
+        return ascii;
+    }
 }
