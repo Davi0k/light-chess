@@ -1,0 +1,15 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "description": "Simple and light-weight chess library for TypeScript",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "echo Not implemented yet"
+  },
+  "keywords": [
+    "chess"
+  ],
+  "author": "Davi0k",
+  "license": "ISC"
+}
