@@ -64,13 +64,16 @@ export class Chess {
     public check = (color: Colors = this.turn): boolean => 
         Validator.check(this.chessboard, color);
 
+    public ascii = (): string =>
+        Chess.ascii(this.chessboard);
+
     public static decode(square: string): Coordinate | null {
         const letters: string[] = [ "A", "B", "C", "D", "E", "F", "G", "H" ];
         const numbers: string[] = [ "1", "2", "3", "4", "5", "6", "7", "8" ];
 
-        if(square.length > 2) return null;
+        if(square == null || square.length > 2) return null;
 
-        const X: string = square[0], Y: string = square[1];
+        const X: string = square[0].toUpperCase(), Y: string = square[1];
 
         if(letters.indexOf(X) < 0 || numbers.indexOf(Y) < 0) return null;
 
