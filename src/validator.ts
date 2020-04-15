@@ -7,7 +7,8 @@ export enum Validations {
     LEGAL_MOVE, ILLEGAL_MOVE,
     KING_ON_CHECK,
     CHECKMATE,
-    BLANK_SQUARE, OUT_OF_BOARD
+    BLANK_SQUARE, OUT_OF_BOARD,
+    MATCH_FINISHED
 }
 
 export type Coordinate = { row: number, column: number };
