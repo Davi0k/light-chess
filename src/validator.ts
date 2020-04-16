@@ -1,20 +1,44 @@
+/**
+ * Enumerator which represents the two possible piece color in chess.
+ */
 export enum Colors {
     WHITE,
     BLACK
 }
 
+/**
+ * Enumerator which represents one of the possible result given by the `Validator.validate` function.
+ * Each value of the enumeration indicates the state occured.
+ * 
+ * @param LEGAL_MOVE - The move is legal.
+ * @param ILLEGAL_MOVE - The move is illegal for the selected piece move pattern.
+ * @param KING_ON_CHECK - The king of the player who tried to validate the move is on check.
+ * @param BLANK_SQUARE - The selected square is empty and does not contain any piece to move.
+ * @param OUT_OF_BOARD - The selected square is out of the board.
+ * @param CHECKMATE - The executed move checkmated the opponent.
+ * @param MATCH_FINISHED - The move cannot be executed because the match is finished.
+ */
 export enum Validations {
     LEGAL_MOVE, ILLEGAL_MOVE,
     KING_ON_CHECK,
-    CHECKMATE,
     BLANK_SQUARE, OUT_OF_BOARD,
+    CHECKMATE,
     MATCH_FINISHED
 }
 
+/**
+ * Type-Alias which represents a coordinate which points to one of the chessboard's square.
+ */
 export type Coordinate = { row: number, column: number };
 
+/**
+ * Type-Alias which represents a movement.
+ */
 export type Movement = { initial: Coordinate, final: Coordinate };
 
+/**
+ * Type-Alias which represents the exact chessboard bone and type.
+ */
 export type Chessboard = [
     [Square, Square, Square, Square, Square, Square, Square, Square],
     [Square, Square, Square, Square, Square, Square, Square, Square],
@@ -26,7 +50,17 @@ export type Chessboard = [
     [Square, Square, Square, Square, Square, Square, Square, Square],
 ];
 
+/**
+ * Core of the chess-engine, contains useful functions to evaluates moves and matches.
+ */
 export namespace Validator {
+    /**
+     * Evaluates and validates a move within the current chessboard.
+     * 
+     * @param chessboard - The chessboard layout to use.
+     * @param movement - The movement to validate.
+     * @returns One of the possible value of `Validations` enumeration.
+     */
     export function validate(chessboard: Chessboard, movement: Movement): Validations {
         const square: Square = chessboard[movement.initial.row]?.[movement.initial.column];
 
@@ -45,6 +79,13 @@ export namespace Validator {
         return Validations.ILLEGAL_MOVE;
     }
 
+    /**
+     * Calculates every legal move for a selected piece within the current chessboard.
+     * 
+     * @param chessboard - The chessboard layout to use.
+     * @param coordinate - The coordinate of the piece.
+     * @returns An array containing every square's coordinate where the piece can be moved.
+     */
     export function legals(chessboard: Chessboard, coordinate: Coordinate): Coordinate[] {
         const square: Square = chessboard[coordinate.row]?.[coordinate.column];
 
@@ -53,6 +94,13 @@ export namespace Validator {
         return coordinates;
     }
 
+    /**
+     * Calculates every legal move for a selected player within the current chessboard.
+     * 
+     * @param chessboard - The chessboard layout to use.
+     * @param color - The color of the player to calculate the possible moves. If ignored the default player will be the current turn one.
+     * @returns An array containing every possible movement.
+     */
     export function possibilities(chessboard: Chessboard, color: Colors, check: boolean = true): Movement[] {
         const movements: Movement[] = new Array<Movement>();
 
@@ -71,6 +119,13 @@ export namespace Validator {
         return movements;
     }
 
+    /**
+     * Evaluates if the selected player is on check.
+     * 
+     * @param chessboard - The chessboard layout to use.
+     * @param color - The color of the player to evaluate. If ignored the default player will be the current turn one.
+     * @returns `true`: The player is on check, `false`: The player is not on check.
+     */
     export function check(chessboard: Chessboard, color: Colors): boolean {
         const piece: Square = color ? Pieces.Black.King : Pieces.White.King;
         let king: Coordinate = null;
@@ -235,9 +290,30 @@ namespace Evaluates {
     }
 }
 
+/**
+ * Class which represents a chessboard square.
+ */
 export class Square {
-    public color: Colors | null; public validation: Function | null;
+    /**
+     * The color of the piece on the square.
+     * 
+     * @remarks If it is set to `null` then the square will be empty.
+     */
+    public color: Colors | null; 
+    
+    /**
+     * The validation function of the piece on the square.
+     * 
+     * @remarks If it is set to `null` then the square will be empty.
+     */
+    public validation: Function | null;
   
+    /**
+     * Default class constructor.
+     * 
+     * @param color - The color of the piece on the square.
+     * @param validation - The validation function of the piece on the square.
+     */
     constructor(
       color: Colors | null = null, 
       validation: Function | null = null) {
@@ -246,6 +322,9 @@ export class Square {
     }
 }
 
+/**
+ * Wrapper object to represent every possible chess piece, included an empty square.
+ */
 export const Pieces = {
     White: {
         Pawn: new Square(Colors.WHITE, Evaluates.pawn),

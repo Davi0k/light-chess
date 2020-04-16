@@ -2,4 +2,5 @@ tsconfig.json
 .git
 .gitignore
 src
+node_modules
 LICENSE
