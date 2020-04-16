@@ -99,6 +99,7 @@ export namespace Validator {
      * 
      * @param chessboard - The chessboard layout to use.
      * @param color - The color of the player to calculate the possible moves. If ignored the default player will be the current turn one.
+     * @param check - The default value is true. If it is set to false, all the check control will be disabled.
      * @returns An array containing every possible movement.
      */
     export function possibilities(chessboard: Chessboard, color: Colors, check: boolean = true): Movement[] {

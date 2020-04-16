@@ -3,4 +3,5 @@ tsconfig.json
 .gitignore
 src
 node_modules
+docs
 LICENSE

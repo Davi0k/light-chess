@@ -4,11 +4,12 @@
   "description": "A simple, fast and light-weight chess library written in Type-Script",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Davi0k/light-chess.git"
+    "url": "https://github.com/Davi0k/light-chess.git"
   },
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
+    "compile": "tsc",
     "test": "echo Not implemented yet"
   },
   "keywords": [
@@ -16,5 +17,8 @@
     "chessboard"
   ],
   "author": "Davi0k",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "typedoc": "^0.17.4"
+  }
 }

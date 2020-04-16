@@ -1,4 +1,4 @@
-import { Colors, Validations, Pieces, Validator, Chessboard, Movement, Coordinate } from "./validator";
+import { Colors, Validations, Coordinate, Movement, Chessboard, Validator, Square, Pieces } from "./validator";
 
 /** 
  * Main class to handle Chess match using light-chess.
@@ -37,7 +37,7 @@ export class Chess {
      * @remarks
      * if `null` then the match is not finished.
      */
-    public checkmate: Colors = null;
+    public checkmate: Colors | null = null;
 
     /**
      * Default class constructor.
@@ -91,7 +91,7 @@ export class Chess {
      * @returns One of the possible value of `Validations` enumeration.
      * 
      * @remarks 
-     * Non-static wrapper for respective `Validator` function.
+     * Non-static wrapper for respective `Validator.validate` function.
      */
     public validate = (movement: Movement): Validations => 
         Validator.validate(this.chessboard, movement);
@@ -103,7 +103,7 @@ export class Chess {
      * @returns An array containing every square's coordinate where the piece can be moved.
      * 
      * @remarks 
-     * Non-static wrapper for respective `Validator` function.
+     * Non-static wrapper for respective `Validator.legals` function.
      */
     public legals = (coordinate: Coordinate): Coordinate[] => 
         Validator.legals(this.chessboard, coordinate);
@@ -112,13 +112,14 @@ export class Chess {
      * Calculates every legal move for a selected player within the current chessboard.
      * 
      * @param color - The color of the player to calculate the possible moves. If ignored the default player will be the current turn one.
+     * @param check - The default value is true. If it is set to false, all the check control will be disabled.
      * @returns An array containing every possible movement.
      * 
      * @remarks 
-     * Non-static wrapper for respective `Validator` function.
+     * Non-static wrapper for respective `Validator.possibilities` function.
      */
-    public possibilities = (color: Colors = this.turn): Movement[] => 
-        Validator.possibilities(this.chessboard, color);
+    public possibilities = (color: Colors = this.turn, check: boolean = true): Movement[] => 
+        Validator.possibilities(this.chessboard, color, check);
 
     /**
      * Evaluates if the selected player is on check.
@@ -127,7 +128,7 @@ export class Chess {
      * @returns `true`: The player is on check, `false`: The player is not on check.
      * 
      * @remarks 
-     * Non-static wrapper for respective `Validator` function.
+     * Non-static wrapper for respective `Validator.check` function.
      */
     public check = (color: Colors = this.turn): boolean => 
         Validator.check(this.chessboard, color);
@@ -139,7 +140,7 @@ export class Chess {
      * @returns The created ASCII string.
      * 
      * @remarks 
-     * Non-static wrapper for respective `Chess` static method.
+     * Non-static wrapper for respective `Chess.ascii` static method.
      */
     public ascii = (): string =>
         Chess.ascii(this.chessboard);
@@ -176,7 +177,7 @@ export class Chess {
      * @returns The created ASCII string.
      */
     public static ascii(chessboard: Chessboard): string {
-        const emoji = function(piece) {
+        const emoji = function(piece: Square) {
             switch(piece) {
                 case Pieces.White.Pawn: return "♙";
                 case Pieces.White.Bishop: return "♗";
