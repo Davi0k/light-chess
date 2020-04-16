@@ -1,7 +1,7 @@
 {
   "name": "light-chess",
   "version": "1.0.0",
-  "description": "Simple and light-weight chess library written in TypeScript",
+  "description": "A simple, fast and light-weight chess library written in Type-Script",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Davi0k/light-chess.git"
