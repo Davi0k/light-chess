@@ -169,7 +169,7 @@ namespace Evaluates {
         if(chessboard[row + addictive]?.[column - 1]?.color == eat) 
             coordinates.push({ row: row + addictive, column: column - 1 });
 
-        if(row == chessboard[row][column].color ? chessboard.length - 2 : 1)
+        if(row == 6 || row == 1)
             if(chessboard[row + addictive]?.[column] == Pieces.Empty)
                 if(chessboard[row + addictive + addictive]?.[column] == Pieces.Empty) 
                     coordinates.push({ row: row + addictive + addictive, column: column });
