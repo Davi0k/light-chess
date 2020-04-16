@@ -2,23 +2,19 @@
   "name": "light-chess",
   "version": "1.0.0",
   "description": "Simple and light-weight chess library written in TypeScript",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Davi0k/light-chess.git"
+  },
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
     "test": "echo Not implemented yet"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Davi0k/light-chess.git"
   },
   "keywords": [
     "chess",
     "chessboard"
   ],
   "author": "Davi0k",
-  "license": "ISC",
-  "devDependencies": {
-    "typedoc": "^0.17.4",
-    "typedoc-plugin-markdown": "^2.2.17"
-  }
+  "license": "ISC"
 }
