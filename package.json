@@ -19,6 +19,9 @@
   ],
   "author": "Davi0k",
   "license": "GPL-3.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/jasmine": "^3.5.10",
     "jasmine": "^3.5.0",
