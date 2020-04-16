@@ -10,7 +10,8 @@
   "types": "build/index.d.ts",
   "scripts": {
     "compile": "tsc",
-    "test": "echo Not implemented yet"
+    "docs": "npx typedoc --out docs src",
+    "test": "npx ts-node node_modules/jasmine/bin/jasmine --reporter=jasmine-console-reporter"
   },
   "keywords": [
     "chess",
@@ -21,6 +22,9 @@
   "devDependencies": {
     "@types/jasmine": "^3.5.10",
     "jasmine": "^3.5.0",
-    "typedoc": "^0.17.4"
+    "jasmine-console-reporter": "^3.1.0",
+    "ts-node": "^8.8.2",
+    "typedoc": "^0.17.4",
+    "typescript": "^3.8.3"
   }
 }
