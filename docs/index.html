@@ -101,6 +101,37 @@ cd light-chess</code></pre><p>Then install all the required packages using <code
 				<p>The tests of the project has been written using the <code>Jasmine</code> test-suite.
 				If you want to run them and check the test result, simply run this command:</p>
 				<pre><code>npm <span class="hljs-built_in">test</span></code></pre>
+				<a href="#using-fen-expressions-with-light-chess" id="using-fen-expressions-with-light-chess" style="color: inherit; text-decoration: none;">
+					<h2>Using FEN expressions with <code>light-chess</code></h2>
+				</a>
+				<p><code>light-chess</code> supports the import and export of matches in FEN format as well.
+				To import or export a FEN expression, you have to use the apposite method inside the <code>Chess</code> class.</p>
+				<a href="#importing-a-fen-expression-in-a-match" id="importing-a-fen-expression-in-a-match" style="color: inherit; text-decoration: none;">
+					<h3>Importing a FEN expression in a match</h3>
+				</a>
+				<p>To do this, you just have to use the <code>Chess.import</code> method:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> chess: Chess = <span class="hljs-keyword">new</span> Chess();
+
+chess.import(<span class="hljs-string">"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0"</span>);
+
+<span class="hljs-keyword">const</span> chessboard: <span class="hljs-built_in">string</span> = chess.ascii();
+
+<span class="hljs-built_in">console</span>.log(chessboard);</code></pre>
+				<p>Or you can import the expression directly in the class <code>constructor</code>:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> chess: Chess = <span class="hljs-keyword">new</span> Chess(<span class="hljs-string">"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0"</span>);
+
+<span class="hljs-keyword">const</span> chessboard: <span class="hljs-built_in">string</span> = chess.ascii();
+
+<span class="hljs-built_in">console</span>.log(chessboard);</code></pre>
+				<a href="#exporting-a-match-into-a-fen-expression" id="exporting-a-match-into-a-fen-expression" style="color: inherit; text-decoration: none;">
+					<h3>Exporting a match into a FEN expression</h3>
+				</a>
+				<p>To do this, you just have to use the <code>Chess.export</code> method:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> chess: Chess = <span class="hljs-keyword">new</span> Chess();
+
+<span class="hljs-keyword">const</span> fen: <span class="hljs-built_in">string</span> = chess.export();
+
+<span class="hljs-built_in">console</span>.log(fen);</code></pre>
 				<a href="#a-minimal-chess-game-written-in-type-script-with-light-chess" id="a-minimal-chess-game-written-in-type-script-with-light-chess" style="color: inherit; text-decoration: none;">
 					<h2>A minimal chess game written in <code>Type-Script</code> with <code>light-chess</code></h2>
 				</a>
