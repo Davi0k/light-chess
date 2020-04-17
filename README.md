@@ -51,6 +51,45 @@ If you want to run them and check the test result, simply run this command:
 npm test
 ```
 
+## Using FEN expressions with `light-chess`
+
+`light-chess` supports the import and export of matches in FEN format as well.
+To import or export a FEN expression, you have to use the apposite method inside the `Chess` class.
+ 
+### Importing a FEN expression in a match
+To do this, you just have to use the `Chess.import` method:
+
+```typescript
+const chess: Chess = new Chess();
+
+chess.import("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0");
+
+const chessboard: string = chess.ascii();
+
+console.log(chessboard);
+```
+
+Or you can import the expression directly in the class `constructor`:
+
+```typescript
+const chess: Chess = new Chess("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0");
+
+const chessboard: string = chess.ascii();
+
+console.log(chessboard);
+```
+
+### Exporting a match into a FEN expression
+To do this, you just have to use the `Chess.export` method:
+
+```typescript
+const chess: Chess = new Chess();
+
+const fen: string = chess.export();
+
+console.log(fen);
+```
+
 ## A minimal chess game written in `Type-Script` with `light-chess`
 ```typescript
 import { Chess, Coordinate, Movement, Validations } from "light-chess";
