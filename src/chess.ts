@@ -170,25 +170,65 @@ export class Chess {
         return coordinate;
     }
 
+    /**
+     * Imports a FEN string format to the current match, replacing the chessboard property.
+     * 
+     * @param fen - The FEN expression which will be imported (example: `e2`).
+     * @throws If the FEN expression is not valid and does not match with the RegExp, the method will throw an Error
+     * 
+     * @remarks
+     * The RegExp pattern used for FEN validation is: 
+     * `\s*^(((?:[rnbqkpRNBQKP1-8]+\/){7})[rnbqkpRNBQKP1-8]+)\s([b|w])\s([K|Q|k|q|-]{1,4})\s(-|[a-h][1-8])\s(\d+\s\d+)$`
+     */
     public import(fen: string): void {
-        const pattern: RegExp = /\s*^(((?:[rnbqkpRNBQKP1-8]+\/){7})[rnbqkpRNBQKP1-8]+)\s([b|w])\s([K|Q|k|q]{1,4})\s(-|[a-h][1-8])\s(\d+\s\d+)$/;
+        const pattern: RegExp = /\s*^(((?:[rnbqkpRNBQKP1-8]+\/){7})[rnbqkpRNBQKP1-8]+)\s([b|w])\s([K|Q|k|q|-]{1,4})\s(-|[a-h][1-8])\s(\d+\s\d+)$/;
 
         if(pattern.test(fen) == false) 
             throw new Error("Invalid FEN format string, cannot import it");
 
         const chessboard: Chessboard = new Array() as Chessboard;
 
-        const representation: string[] = fen.split(" ")[0].split("/");
+        const representation: string[] = fen.split(" ")[0].split("/").reverse();
 
-        for(const row in representation) {
+        for(const line of representation) {
             const row: Row = new Array() as Row;
 
-            for(const square in row) {
+            for(const square of line) {
+                const empty: number = parseInt(square) || 0;
 
+                if(empty > 0) {
+                    for(let i = 0; i < empty; i++)
+                        row.push(Pieces.Empty);
+
+                    continue;
+                }
+
+                let piece: any = square == square.toUpperCase() ? Pieces.White : Pieces.Black;
+
+                const letter: string = square.toUpperCase();
+
+                switch(letter) {
+                    case "P": piece = piece.Pawn; break;
+                    case "B": piece = piece.Bishop; break;
+                    case "N": piece = piece.Knight; break;
+                    case "R": piece = piece.Rook; break;
+                    case "Q": piece = piece.Queen; break;
+                    case "K": piece = piece.King; break;
+                }
+                
+                row.push(piece);
             }
 
             chessboard.push(row);
         }
+
+        this.chessboard = chessboard;
+
+        const turn: string = fen.split(" ")[1].toUpperCase();
+
+        if(turn == "W") this.turn = Colors.WHITE;
+
+        if(turn == "B") this.turn = Colors.BLACK;
     }
 
     /**
