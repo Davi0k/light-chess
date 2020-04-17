@@ -37,6 +37,11 @@ export type Coordinate = { row: number, column: number };
 export type Movement = { initial: Coordinate, final: Coordinate };
 
 /**
+ * Type-Alias which represents a chessboard row bone and type.
+ */
+export type Row = [Square, Square, Square, Square, Square, Square, Square, Square];
+
+/**
  * Type-Alias which represents the exact chessboard bone and type.
  */
 export type Chessboard = [

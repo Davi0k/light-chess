@@ -1,6 +1,7 @@
 tsconfig.json
 .git
 .gitignore
+build/.gitkeep
 src
 node_modules
 docs

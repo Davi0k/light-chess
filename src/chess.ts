@@ -1,4 +1,4 @@
-import { Colors, Validations, Coordinate, Movement, Chessboard, Validator, Square, Pieces } from "./validator";
+import { Colors, Validations, Coordinate, Movement, Chessboard, Validator, Square, Pieces, Row } from "./validator";
 
 /** 
  * Main class to handle Chess match using light-chess.
@@ -45,7 +45,7 @@ export class Chess {
      * @param layout - The layout of the chessboard at the beginning of the match, if ignored the default layout will be `Chess.layout`.
      */
     constructor(layout: Chessboard = Chess.layout) {
-        this.chessboard = layout;
+        this.chessboard = layout.map(row => row.slice()) as Chessboard;
     }
 
     /**
@@ -133,7 +133,6 @@ export class Chess {
     public check = (color: Colors = this.turn): boolean => 
         Validator.check(this.chessboard, color);
 
-
     /**
      * Creates an ASCII string which represents the current chessboard layout.
      * 
@@ -145,14 +144,13 @@ export class Chess {
     public ascii = (): string =>
         Chess.ascii(this.chessboard);
 
-
     /**
      * Converts a string format coordinate to the respective `Coordinate` object.
      * 
      * @param square - The selected square of the chessboard expressed in string format (example: `e2`, `a5`, `h6`).
      * @returns The respective `Coordinate` object, if the string format is not valid the function will return `null`.
      */
-    public static decode(square: string): Coordinate | null {
+    public static decode(square: string): Coordinate {
         const letters: string[] = [ "A", "B", "C", "D", "E", "F", "G", "H" ];
         const numbers: string[] = [ "1", "2", "3", "4", "5", "6", "7", "8" ];
 
@@ -160,7 +158,8 @@ export class Chess {
 
         const X: string = square[0].toUpperCase(), Y: string = square[1];
 
-        if(letters.indexOf(X) < 0 || numbers.indexOf(Y) < 0) return null;
+        if(letters.indexOf(X) < 0 || numbers.indexOf(Y) < 0)
+            throw new Error("Invalid string format for coordinate, cannot decode it");
 
         const coordinate: Coordinate = {
             row: numbers.indexOf(Y),
@@ -168,6 +167,25 @@ export class Chess {
         };
 
         return coordinate;
+    }
+
+    public import(fen: string): void {
+        const pattern: RegExp = /\s*^(((?:[rnbqkpRNBQKP1-8]+\/){7})[rnbqkpRNBQKP1-8]+)\s([b|w])\s([K|Q|k|q]{1,4})\s(-|[a-h][1-8])\s(\d+\s\d+)$/;
+
+        if(pattern.test(fen) == false) 
+            throw new Error("Invalid FEN format string, cannot import it");
+
+        const chessboard: Chessboard = new Array() as Chessboard;
+
+        const representation: string[] = fen.split(" ")[0].split("/");
+
+        for(const row in representation) {
+            const row: Row = new Array() as Row;
+        }
+    }
+
+    public export(): void {
+
     }
 
     /**
