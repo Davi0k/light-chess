@@ -17,9 +17,39 @@ describe("The Chess class should", function() {
         });
 
         it("a wrong string format coordinate", function() {
-            coordinate = Chess.decode("Z9");
+            expect(function() {
+                Chess.decode("Z9");
+            }).toThrowError("Invalid string format for coordinate, cannot decode it");
+        });
+    });
 
-            expect(coordinate).toBe(null);
+    describe("be able to handle FEN expressions", function() {
+        let chess: Chess | null = null;
+
+        const fen: string = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0";
+
+        it("and import one into a match", function() {
+            chess = new Chess(fen);
+
+            expect(chess.chessboard).toEqual(Chess.layout);
+
+            expect(chess.turn).toBe(Colors.WHITE);
+        });
+
+        it("and export a match into one", function() {
+            chess = new Chess();
+
+            const result: string = chess.export();
+
+            expect(result).toBe(fen);
+        });
+
+        it("and throw an error if the format is invalid", function() {
+            chess = new Chess(fen);
+
+            expect(function() {
+                chess.import("This is an invalid FEN");
+            }).toThrowError("Invalid FEN format string, cannot import it");
         });
     });
 });

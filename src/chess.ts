@@ -44,8 +44,12 @@ export class Chess {
      * 
      * @param layout - The layout of the chessboard at the beginning of the match, if ignored the default layout will be `Chess.layout`.
      */
-    constructor(layout: Chessboard = Chess.layout) {
-        this.chessboard = layout.map(row => row.slice()) as Chessboard;
+    constructor(layout: Chessboard | string = Chess.layout) {
+        if(typeof layout == typeof Chess.layout)
+            this.chessboard = (layout as Chessboard).map(row => row.slice()) as Chessboard;
+        
+        if(typeof layout == "string")
+            this.import(layout);
     }
 
     /**
@@ -242,6 +246,24 @@ export class Chess {
 
         const chessboard: Chessboard = this.chessboard.reverse() as Chessboard;
 
+        const character = function(piece: Square): string {
+            switch(piece) {
+                case Pieces.White.Pawn: return "P"; 
+                case Pieces.White.Bishop: return "B"; 
+                case Pieces.White.Knight: return "N"; 
+                case Pieces.White.Rook: return "R"; 
+                case Pieces.White.Queen: return "Q";
+                case Pieces.White.King: return "K"; 
+
+                case Pieces.Black.Pawn: return "p"; 
+                case Pieces.Black.Bishop: return "b"; 
+                case Pieces.Black.Knight: return "n";
+                case Pieces.Black.Rook: return "r";
+                case Pieces.Black.Queen: return "q"; 
+                case Pieces.Black.King: return "k"; 
+            } 
+        }
+
         for(const row of chessboard) {
             let line: string = ""; 
 
@@ -264,25 +286,7 @@ export class Chess {
 
                 counter = 0;
 
-                let char: string = null; 
-
-                switch(square) {
-                    case Pieces.White.Pawn: char = "P"; break;
-                    case Pieces.White.Bishop: char = "B"; break;
-                    case Pieces.White.Knight: char = "N"; break;
-                    case Pieces.White.Rook: char = "R"; break;
-                    case Pieces.White.Queen: char = "Q"; break;
-                    case Pieces.White.King: char = "K"; break;
-
-                    case Pieces.Black.Pawn: char = "p"; break;
-                    case Pieces.Black.Bishop: char = "b"; break;
-                    case Pieces.Black.Knight: char = "n"; break;
-                    case Pieces.Black.Rook: char = "r"; break;
-                    case Pieces.Black.Queen: char = "q"; break;
-                    case Pieces.Black.King: char = "k"; break;
-                } 
-
-                line = line + char;
+                line = line + character(square);
             }
             
             representation.push(line);
@@ -292,7 +296,7 @@ export class Chess {
 
         fen = fen + (this.turn ? " b " : " w ");
 
-        return fen + "- - 0 0";
+        return fen + "KQkq - 0 0";
     }
 
     /**
@@ -302,7 +306,7 @@ export class Chess {
      * @returns The created ASCII string.
      */
     public static ascii(chessboard: Chessboard): string {
-        const emoji = function(piece: Square) {
+        const emoji = function(piece: Square): string {
             switch(piece) {
                 case Pieces.White.Pawn: return "♙";
                 case Pieces.White.Bishop: return "♗";
