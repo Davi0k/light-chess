@@ -51,7 +51,7 @@ If you want to run them and check the test result, simply run this command:
 npm test
 ```
 
-## A simple `Type-Script` program with `light-chess`
+## A minimal chess game written in `Type-Script` with `light-chess`
 ```typescript
 import { Chess, Coordinate, Movement, Validations } from "light-chess";
 import readline from "readline";

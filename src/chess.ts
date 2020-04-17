@@ -148,6 +148,7 @@ export class Chess {
      * Converts a string format coordinate to the respective `Coordinate` object.
      * 
      * @param square - The selected square of the chessboard expressed in string format (example: `e2`, `a5`, `h6`).
+     * @throws If the string format coordinate is not valid, the method will throw an Error.
      * @returns The respective `Coordinate` object, if the string format is not valid the function will return `null`.
      */
     public static decode(square: string): Coordinate {
@@ -171,10 +172,10 @@ export class Chess {
     }
 
     /**
-     * Imports a FEN string format to the current match, replacing the chessboard property.
+     * Imports a FEN expression format replacing the current match.
      * 
      * @param fen - The FEN expression which will be imported (example: `e2`).
-     * @throws If the FEN expression is not valid and does not match with the RegExp, the method will throw an Error
+     * @throws If the FEN expression is not valid and does not match with the RegExp, the method will throw an Error.
      * 
      * @remarks
      * The RegExp pattern used for FEN validation is: 
@@ -190,15 +191,15 @@ export class Chess {
 
         const representation: string[] = fen.split(" ")[0].split("/").reverse();
 
-        for(const line of representation) {
-            const row: Row = new Array() as Row;
+        for(const row of representation) {
+            const line: Row = new Array() as Row;
 
-            for(const square of line) {
+            for(const square of row) {
                 const empty: number = parseInt(square) || 0;
 
                 if(empty > 0) {
                     for(let i = 0; i < empty; i++)
-                        row.push(Pieces.Empty);
+                        line.push(Pieces.Empty);
 
                     continue;
                 }
@@ -216,10 +217,10 @@ export class Chess {
                     case "K": piece = piece.King; break;
                 }
                 
-                row.push(piece);
+                line.push(piece);
             }
 
-            chessboard.push(row);
+            chessboard.push(line);
         }
 
         this.chessboard = chessboard;
@@ -229,6 +230,69 @@ export class Chess {
         if(turn == "W") this.turn = Colors.WHITE;
 
         if(turn == "B") this.turn = Colors.BLACK;
+    }
+
+    /**
+     * Exports the current match in FEN expression format.
+     * 
+     * @returns A string containing the FEN expression.
+     */
+    public export(): string {
+        const representation: string[] = new Array();
+
+        const chessboard: Chessboard = this.chessboard.reverse() as Chessboard;
+
+        for(const row of chessboard) {
+            let line: string = ""; 
+
+            let counter: number = 0;
+
+            for(const index in row) {
+                const square: Square = row[index];
+
+                if(square == Pieces.Empty) { 
+                    counter = counter + 1; 
+
+                    const finish: boolean = parseInt(index) == row.length - 1;
+
+                    if(finish) line = line + counter;
+
+                    continue; 
+                }
+
+                if(counter > 0) line = line + counter;
+
+                counter = 0;
+
+                let char: string = null; 
+
+                switch(square) {
+                    case Pieces.White.Pawn: char = "P"; break;
+                    case Pieces.White.Bishop: char = "B"; break;
+                    case Pieces.White.Knight: char = "N"; break;
+                    case Pieces.White.Rook: char = "R"; break;
+                    case Pieces.White.Queen: char = "Q"; break;
+                    case Pieces.White.King: char = "K"; break;
+
+                    case Pieces.Black.Pawn: char = "p"; break;
+                    case Pieces.Black.Bishop: char = "b"; break;
+                    case Pieces.Black.Knight: char = "n"; break;
+                    case Pieces.Black.Rook: char = "r"; break;
+                    case Pieces.Black.Queen: char = "q"; break;
+                    case Pieces.Black.King: char = "k"; break;
+                } 
+
+                line = line + char;
+            }
+            
+            representation.push(line);
+        }
+
+        let fen: string = representation.join("/");
+
+        fen = fen + (this.turn ? " b " : " w ");
+
+        return fen + "- - 0 0";
     }
 
     /**
