@@ -154,12 +154,13 @@ export class Chess {
         const letters: string[] = [ "A", "B", "C", "D", "E", "F", "G", "H" ];
         const numbers: string[] = [ "1", "2", "3", "4", "5", "6", "7", "8" ];
 
-        if(square == null || square.length > 2) return null;
+        const error: Error = new Error("Invalid string format for coordinate, cannot decode it");
+
+        if(square == null || square.length > 2) throw error;
 
         const X: string = square[0].toUpperCase(), Y: string = square[1];
 
-        if(letters.indexOf(X) < 0 || numbers.indexOf(Y) < 0)
-            throw new Error("Invalid string format for coordinate, cannot decode it");
+        if(letters.indexOf(X) < 0 || numbers.indexOf(Y) < 0) throw error;
 
         const coordinate: Coordinate = {
             row: numbers.indexOf(Y),
@@ -181,11 +182,13 @@ export class Chess {
 
         for(const row in representation) {
             const row: Row = new Array() as Row;
+
+            for(const square in row) {
+
+            }
+
+            chessboard.push(row);
         }
-    }
-
-    public export(): void {
-
     }
 
     /**
