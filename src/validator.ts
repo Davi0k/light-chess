@@ -7,6 +7,18 @@ export enum Colors {
 }
 
 /**
+ * Enumerator which represents the six possible types of piece in chess.
+ */
+export enum Types {
+    PAWN,
+    BISHOP,
+    KNIGHT,
+    ROOK,
+    QUEEN,
+    KING
+}
+
+/**
  * Enumerator which represents one of the possible result given by the `Validator.validate` function.
  * Each value of the enumeration indicates the state occured.
  * 
@@ -306,6 +318,13 @@ export class Square {
      * @remarks If it is set to `null` then the square will be empty.
      */
     public color: Colors | null; 
+
+    /**
+     * The type of the piece on the square.
+     * 
+     * @remarks If it is set to `null` then the square will be empty.
+     */
+    public type: Types | null;
     
     /**
      * The validation function of the piece on the square.
@@ -318,12 +337,15 @@ export class Square {
      * Default class constructor.
      * 
      * @param color - The color of the piece on the square.
+     * @param type - The type of the piece on the square.
      * @param validation - The validation function of the piece on the square.
      */
     constructor(
       color: Colors | null = null, 
+      type: Types | null = null,
       validation: Function | null = null) {
         this.color = color;
+        this.type = type;
         this.validation = validation;
     }
 }
@@ -333,20 +355,20 @@ export class Square {
  */
 export const Pieces = {
     White: {
-        Pawn: new Square(Colors.WHITE, Evaluates.pawn),
-        Bishop: new Square(Colors.WHITE, Evaluates.bishop),
-        Knight: new Square(Colors.WHITE, Evaluates.knight),
-        Rook: new Square(Colors.WHITE, Evaluates.rook),
-        Queen: new Square(Colors.WHITE, Evaluates.queen),
-        King: new Square(Colors.WHITE, Evaluates.king),
+        Pawn: new Square(Colors.WHITE, Types.PAWN, Evaluates.pawn),
+        Bishop: new Square(Colors.WHITE, Types.BISHOP, Evaluates.bishop),
+        Knight: new Square(Colors.WHITE, Types.KNIGHT, Evaluates.knight),
+        Rook: new Square(Colors.WHITE, Types.ROOK, Evaluates.rook),
+        Queen: new Square(Colors.WHITE, Types.QUEEN, Evaluates.queen),
+        King: new Square(Colors.WHITE, Types.KING, Evaluates.king),
     },
     Black: {
-        Pawn: new Square(Colors.BLACK, Evaluates.pawn),
-        Bishop: new Square(Colors.BLACK, Evaluates.bishop),
-        Knight: new Square(Colors.BLACK, Evaluates.knight),
-        Rook: new Square(Colors.BLACK, Evaluates.rook),
-        Queen: new Square(Colors.BLACK, Evaluates.queen),
-        King: new Square(Colors.BLACK, Evaluates.king),
+        Pawn: new Square(Colors.BLACK, Types.PAWN, Evaluates.pawn),
+        Bishop: new Square(Colors.BLACK, Types.BISHOP, Evaluates.bishop),
+        Knight: new Square(Colors.BLACK, Types.KNIGHT, Evaluates.knight),
+        Rook: new Square(Colors.BLACK, Types.ROOK, Evaluates.rook),
+        Queen: new Square(Colors.BLACK, Types.QUEEN, Evaluates.queen),
+        King: new Square(Colors.BLACK, Types.KING, Evaluates.king),
     },
     Empty: new Square()
 };
