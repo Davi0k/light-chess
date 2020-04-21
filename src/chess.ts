@@ -1,4 +1,4 @@
-import { Colors, Validations, Coordinate, Movement, Chessboard, Validator, Square, Pieces, Row } from "./validator";
+import { Colors, Validations, Coordinate, Movement, Chessboard, Validator, Square, Pieces, Row, Types } from "./validator";
 
 /** 
  * Main class to handle Chess match using light-chess.
@@ -42,14 +42,13 @@ export class Chess {
     /**
      * Default class constructor.
      * 
-     * @param layout - The layout of the chessboard at the beginning of the match, if ignored the default layout will be `Chess.layout`.
+     * @param layout - The layout of the chessboard at the beginning of the match, if ignored the default layout will be `Chess.layout`. It can be a Chessboard object or a FEN expression.
      */
     constructor(layout: Chessboard | string = Chess.layout) {
         if(typeof layout == typeof Chess.layout)
             this.chessboard = (layout as Chessboard).map(row => row.slice()) as Chessboard;
         
-        if(typeof layout == "string")
-            this.import(layout);
+        if(typeof layout == "string") this.import(layout);
     }
 
     /**
@@ -153,7 +152,7 @@ export class Chess {
      * 
      * @param square - The selected square of the chessboard expressed in string format (example: `e2`, `a5`, `h6`).
      * @throws If the string format coordinate is not valid, the method will throw an Error.
-     * @returns The respective `Coordinate` object, if the string format is not valid the function will return `null`.
+     * @returns The respective `Coordinate` object.
      */
     public static decode(square: string): Coordinate {
         const letters: string[] = [ "A", "B", "C", "D", "E", "F", "G", "H" ];
@@ -173,6 +172,25 @@ export class Chess {
         };
 
         return coordinate;
+    }
+
+    /**
+     * Converts a `Coordinate` object to the respective string format coordinate.
+     * 
+     * @param square - The selected square of the chessboard expressed using a `Coordinate` object.
+     * @throws If the `Coordinate` object contains an invalid row or column, the method will throw an Error.
+     * @returns The respective string format coordinate.
+     */
+    public static encode(square: Coordinate): string {
+        const letters: string[] = [ "A", "B", "C", "D", "E", "F", "G", "H" ];
+        const numbers: string[] = [ "1", "2", "3", "4", "5", "6", "7", "8" ];
+
+        const letter: string = letters[square.column], number: string = numbers[square.row];
+
+        if(letter == null || number == null) 
+            throw new Error("Invalid Coordinate object, the row or the column is not valid, cannot encode it");
+
+        return letter + number;
     }
 
     /**
@@ -244,24 +262,13 @@ export class Chess {
     public export(): string {
         const representation: string[] = new Array();
 
-        const chessboard: Chessboard = this.chessboard.reverse() as Chessboard;
+        const chessboard: Chessboard = this.chessboard.slice().reverse() as Chessboard;
 
         const character = function(piece: Square): string {
-            switch(piece) {
-                case Pieces.White.Pawn: return "P"; 
-                case Pieces.White.Bishop: return "B"; 
-                case Pieces.White.Knight: return "N"; 
-                case Pieces.White.Rook: return "R"; 
-                case Pieces.White.Queen: return "Q";
-                case Pieces.White.King: return "K"; 
+            const white: string[] = [ "P", "B", "N", "R", "Q", "K" ];
+            const black: string[] = [ "p", "b", "n", "r", "q", "k" ];
 
-                case Pieces.Black.Pawn: return "p"; 
-                case Pieces.Black.Bishop: return "b"; 
-                case Pieces.Black.Knight: return "n";
-                case Pieces.Black.Rook: return "r";
-                case Pieces.Black.Queen: return "q"; 
-                case Pieces.Black.King: return "k"; 
-            } 
+            return piece.color ? black[piece.type] : white[piece.type];
         }
 
         for(const row of chessboard) {
@@ -277,14 +284,10 @@ export class Chess {
 
                     const finish: boolean = parseInt(index) == row.length - 1;
 
-                    if(finish) line = line + counter;
-
-                    continue; 
+                    if(finish) line = line + counter; continue; 
                 }
 
-                if(counter > 0) line = line + counter;
-
-                counter = 0;
+                if(counter > 0) line = line + counter; counter = 0;
 
                 line = line + character(square);
             }
@@ -294,9 +297,7 @@ export class Chess {
 
         let fen: string = representation.join("/");
 
-        fen = fen + (this.turn ? " b " : " w ");
-
-        return fen + "KQkq - 0 0";
+        return fen + (this.turn ? " b " : " w ") + "KQkq - 0 0";
     }
 
     /**
@@ -307,23 +308,12 @@ export class Chess {
      */
     public static ascii(chessboard: Chessboard): string {
         const emoji = function(piece: Square): string {
-            switch(piece) {
-                case Pieces.White.Pawn: return "♙";
-                case Pieces.White.Bishop: return "♗";
-                case Pieces.White.Knight: return "♘";
-                case Pieces.White.Rook: return "♖";
-                case Pieces.White.Queen: return "♕";
-                case Pieces.White.King: return "♔";
+            if(piece == Pieces.Empty) return " ";
 
-                case Pieces.Black.Pawn: return "♟";
-                case Pieces.Black.Bishop: return "♝";
-                case Pieces.Black.Knight: return "♞";
-                case Pieces.Black.Rook: return "♜";
-                case Pieces.Black.Queen: return "♛";
-                case Pieces.Black.King: return "♚";
+            const white: string[] = [ "♙", "♗", "♘", "♖", "♕", "♔" ];
+            const black: string[] = [ "♟", "♝", "♞", "♜", "♛", "♚" ];
 
-                case Pieces.Empty: return " ";
-            }
+            return piece.color ? black[piece.type] : white[piece.type];
         };
 
         let ascii: string = "";

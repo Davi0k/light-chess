@@ -3,10 +3,8 @@ import { Chess } from "../src/chess";
 
 describe("The Chess class should", function() {
     describe("be able to decode into a Coordinate object", function() {
-        let coordinate: Coordinate | null = null;
-
         it("a right string format coordinate", function() {
-            coordinate = Chess.decode("G4");
+            const coordinate: Coordinate = Chess.decode("G4");
 
             const correct: Coordinate = {
                 row: 3,
@@ -20,6 +18,30 @@ describe("The Chess class should", function() {
             expect(function() {
                 Chess.decode("Z9");
             }).toThrowError("Invalid string format for coordinate, cannot decode it");
+        });
+    });
+
+    describe("be able to encode into a string", function() {
+        it("a right Coordinate object", function() {
+            const coordinate: Coordinate = {
+                row: 3,
+                column: 6
+            };
+
+            const format: string = Chess.encode(coordinate);
+
+            expect(format).toEqual("G4");
+        });
+
+        it("a wrong Coordinate object", function() {
+            const coordinate: Coordinate = {
+                row: 10,
+                column: 10
+            };
+
+            expect(function() {
+                Chess.encode(coordinate);
+            }).toThrowError("Invalid Coordinate object, the row or the column is not valid, cannot encode it");
         });
     });
 

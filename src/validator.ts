@@ -163,12 +163,6 @@ export namespace Validator {
     }
 }
 
-enum Additives {
-    NEGATIVE = -1,
-    NEUTRAL = 0,
-    POSITIVE = 1
-} 
-
 namespace Evaluates {
     export function pawn(chessboard: Chessboard, coordinate: Coordinate, check: boolean): Coordinate[] {
         const coordinates: Coordinate[] = new Array<Coordinate>();
@@ -306,6 +300,12 @@ namespace Evaluates {
 
         return coordinates;
     }
+
+    enum Additives {
+        NEGATIVE = -1,
+        NEUTRAL = 0,
+        POSITIVE = +1
+    } 
 }
 
 /**
