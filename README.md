@@ -106,9 +106,9 @@ const chess: Chess = new Chess();
 function print(chess: Chess): void {
     console.log(`Current turn: ${chess.turn ? "BLACK" : "WHITE"}`);
 
-    const ascii: string = chess.ascii();
+    const unicode: string = chess.unicode();
 
-    console.log(ascii + "\n");
+    console.log(unicode + "\n");
 
     console.log("Insert a valid move: (example: e2 e4)");
 }

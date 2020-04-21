@@ -137,15 +137,15 @@ export class Chess {
         Validator.check(this.chessboard, color);
 
     /**
-     * Creates an ASCII string which represents the current chessboard layout.
+     * Creates an UTF-16 string which represents the current chessboard layout.
      * 
-     * @returns The created ASCII string.
+     * @returns The created UNICODE string.
      * 
      * @remarks 
-     * Non-static wrapper for respective `Chess.ascii` static method.
+     * Non-static wrapper for respective `Chess.unicode` static method.
      */
-    public ascii = (): string =>
-        Chess.ascii(this.chessboard);
+    public unicode = (): string =>
+        Chess.unicode(this.chessboard);
 
     /**
      * Converts a string format coordinate to the respective `Coordinate` object.
@@ -301,12 +301,12 @@ export class Chess {
     }
 
     /**
-     * Creates an ASCII string which represents the current chessboard layout.
+     * Creates an UTF-16 string which represents the current chessboard layout.
      * 
      * @param chessboard - The chessboard layout to represent.
-     * @returns The created ASCII string.
+     * @returns The created UNICODE string.
      */
-    public static ascii(chessboard: Chessboard): string {
+    public static unicode(chessboard: Chessboard): string {
         const emoji = function(piece: Square): string {
             if(piece == Pieces.Empty) return " ";
 
