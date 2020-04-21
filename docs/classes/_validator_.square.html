@@ -98,6 +98,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_validator_.square.html#color" class="tsd-kind-icon">color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_validator_.square.html#type" class="tsd-kind-icon">type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_validator_.square.html#validation" class="tsd-kind-icon">validation</a></li>
 							</ul>
 						</section>
@@ -110,13 +111,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Square<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">?: </span><a href="../enums/_validator_.colors.html" class="tsd-signature-type">Colors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, validation<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_validator_.square.html" class="tsd-signature-type">Square</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Square<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">?: </span><a href="../enums/_validator_.colors.html" class="tsd-signature-type">Colors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, type<span class="tsd-signature-symbol">?: </span><a href="../enums/_validator_.types.html" class="tsd-signature-type">Types</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, validation<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_validator_.square.html" class="tsd-signature-type">Square</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/eb91a07/src/validator.ts#L315">validator.ts:315</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L334">validator.ts:334</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -131,6 +132,14 @@
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>The color of the piece on the square.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> type: <a href="../enums/_validator_.types.html" class="tsd-signature-type">Types</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The type of the piece on the square.</p>
 										</div>
 									</div>
 								</li>
@@ -156,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <a href="../enums/_validator_.colors.html" class="tsd-signature-type">Colors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/eb91a07/src/validator.ts#L308">validator.ts:308</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L320">validator.ts:320</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -171,12 +180,32 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/_validator_.types.html" class="tsd-signature-type">Types</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L327">validator.ts:327</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The type of the piece on the square.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>remarks</dt>
+							<dd><p>If it is set to <code>null</code> then the square will be empty.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="validation" class="tsd-anchor"></a>
 					<h3>validation</h3>
 					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/eb91a07/src/validator.ts#L315">validator.ts:315</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L334">validator.ts:334</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -201,9 +230,6 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_chess_.html">&quot;chess&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_index_.html">&quot;index&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_validator_.html">&quot;validator&quot;</a>
 					</li>
@@ -218,6 +244,9 @@
 						<a href="../enums/_validator_.colors.html" class="tsd-kind-icon">Colors</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_validator_.types.html" class="tsd-kind-icon">Types</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/_validator_.validations.html" class="tsd-kind-icon">Validations</a>
 					</li>
 				</ul>
@@ -230,6 +259,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_validator_.square.html#color" class="tsd-kind-icon">color</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_validator_.square.html#type" class="tsd-kind-icon">type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_validator_.square.html#validation" class="tsd-kind-icon">validation</a>

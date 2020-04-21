@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Colors | light-chess</title>
+	<title>Types | light-chess</title>
 	<meta name="description" content="Documentation for light-chess">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_validator_.html">&quot;validator&quot;</a>
 				</li>
 				<li>
-					<a href="_validator_.colors.html">Colors</a>
+					<a href="_validator_.types.html">Types</a>
 				</li>
 			</ul>
-			<h1>Enumeration Colors</h1>
+			<h1>Enumeration Types</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Enumerator which represents the two possible piece color in chess.</p>
+						<p>Enumerator which represents the six possible types of piece in chess.</p>
 					</div>
 				</div>
 			</section>
@@ -83,8 +83,12 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_validator_.colors.html#black" class="tsd-kind-icon">BLACK</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_validator_.colors.html#white" class="tsd-kind-icon">WHITE</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_validator_.types.html#bishop" class="tsd-kind-icon">BISHOP</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_validator_.types.html#king" class="tsd-kind-icon">KING</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_validator_.types.html#knight" class="tsd-kind-icon">KNIGHT</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_validator_.types.html#pawn" class="tsd-kind-icon">PAWN</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_validator_.types.html#queen" class="tsd-kind-icon">QUEEN</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_validator_.types.html#rook" class="tsd-kind-icon">ROOK</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,22 +97,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="black" class="tsd-anchor"></a>
-					<h3>BLACK</h3>
-					<div class="tsd-signature tsd-kind-icon">BLACK<span class="tsd-signature-symbol">:</span></div>
+					<a name="bishop" class="tsd-anchor"></a>
+					<h3>BISHOP</h3>
+					<div class="tsd-signature tsd-kind-icon">BISHOP<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L6">validator.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L14">validator.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="white" class="tsd-anchor"></a>
-					<h3>WHITE</h3>
-					<div class="tsd-signature tsd-kind-icon">WHITE<span class="tsd-signature-symbol">:</span></div>
+					<a name="king" class="tsd-anchor"></a>
+					<h3>KING</h3>
+					<div class="tsd-signature tsd-kind-icon">KING<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L5">validator.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L18">validator.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="knight" class="tsd-anchor"></a>
+					<h3>KNIGHT</h3>
+					<div class="tsd-signature tsd-kind-icon">KNIGHT<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L15">validator.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="pawn" class="tsd-anchor"></a>
+					<h3>PAWN</h3>
+					<div class="tsd-signature tsd-kind-icon">PAWN<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L13">validator.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="queen" class="tsd-anchor"></a>
+					<h3>QUEEN</h3>
+					<div class="tsd-signature tsd-kind-icon">QUEEN<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L17">validator.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="rook" class="tsd-anchor"></a>
+					<h3>ROOK</h3>
+					<div class="tsd-signature tsd-kind-icon">ROOK<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L16">validator.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -133,24 +177,36 @@
 					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_validator_.additives.html" class="tsd-kind-icon">Additives</a>
 					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="_validator_.colors.html" class="tsd-kind-icon">Colors</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
-						<a href="_validator_.colors.html" class="tsd-kind-icon">Colors</a>
+						<a href="_validator_.types.html" class="tsd-kind-icon">Types</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_validator_.colors.html#black" class="tsd-kind-icon">BLACK</a>
+								<a href="_validator_.types.html#bishop" class="tsd-kind-icon">BISHOP</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_validator_.colors.html#white" class="tsd-kind-icon">WHITE</a>
+								<a href="_validator_.types.html#king" class="tsd-kind-icon">KING</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_validator_.types.html#knight" class="tsd-kind-icon">KNIGHT</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_validator_.types.html#pawn" class="tsd-kind-icon">PAWN</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_validator_.types.html#queen" class="tsd-kind-icon">QUEEN</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_validator_.types.html#rook" class="tsd-kind-icon">ROOK</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="_validator_.types.html" class="tsd-kind-icon">Types</a>
-					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="_validator_.validations.html" class="tsd-kind-icon">Validations</a>
 					</li>
