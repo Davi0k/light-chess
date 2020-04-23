@@ -80,7 +80,6 @@
 						<section class="tsd-index-section ">
 							<h3>Enumerations</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum tsd-parent-kind-module tsd-is-not-exported"><a href="../enums/_validator_.additives.html" class="tsd-kind-icon">Additives</a></li>
 								<li class="tsd-kind-enum tsd-parent-kind-module"><a href="../enums/_validator_.colors.html" class="tsd-kind-icon">Colors</a></li>
 								<li class="tsd-kind-enum tsd-parent-kind-module"><a href="../enums/_validator_.types.html" class="tsd-kind-icon">Types</a></li>
 								<li class="tsd-kind-enum tsd-parent-kind-module"><a href="../enums/_validator_.validations.html" class="tsd-kind-icon">Validations</a></li>
@@ -95,6 +94,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_validator_.html#castling" class="tsd-kind-icon">Castling</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_validator_.html#chessboard" class="tsd-kind-icon">Chessboard</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_validator_.html#coordinate" class="tsd-kind-icon">Coordinate</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_validator_.html#movement" class="tsd-kind-icon">Movement</a></li>
@@ -113,12 +113,54 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="castling" class="tsd-anchor"></a>
+					<h3>Castling</h3>
+					<div class="tsd-signature tsd-kind-icon">Castling<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>black<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>short<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">; </span>white<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>short<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L73">validator.ts:73</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type-Alias which represents both short and long castling status for white and black player.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>black<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>short<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>short<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+									</li>
+								</ul>
+							</li>
+							<li class="tsd-parameter">
+								<h5>white<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>short<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>long<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>short<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="chessboard" class="tsd-anchor"></a>
 					<h3>Chessboard</h3>
 					<div class="tsd-signature tsd-kind-icon">Chessboard<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L59">validator.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L59">validator.ts:59</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -133,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">Coordinate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>column<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>row<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L44">validator.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L44">validator.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -159,7 +201,7 @@
 					<div class="tsd-signature tsd-kind-icon">Movement<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>final<span class="tsd-signature-symbol">: </span><a href="_validator_.html#coordinate" class="tsd-signature-type">Coordinate</a><span class="tsd-signature-symbol">; </span>initial<span class="tsd-signature-symbol">: </span><a href="_validator_.html#coordinate" class="tsd-signature-type">Coordinate</a><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L49">validator.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L49">validator.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -185,7 +227,7 @@
 					<div class="tsd-signature tsd-kind-icon">Row<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">, </span><a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L54">validator.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L54">validator.ts:54</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -203,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">Pieces<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L356">validator.ts:356</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L370">validator.ts:370</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -217,146 +259,146 @@
 						<div class="tsd-signature tsd-kind-icon">Empty<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L373">validator.ts:373</a></li>
+								<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L387">validator.ts:387</a></li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
-						<a name="pieces.black" class="tsd-anchor"></a>
+						<a name="pieces.black-1" class="tsd-anchor"></a>
 						<h3>Black</h3>
 						<div class="tsd-signature tsd-kind-icon">Black<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L365">validator.ts:365</a></li>
+								<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L379">validator.ts:379</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.black.bishop" class="tsd-anchor"></a>
+							<a name="pieces.black-1.bishop" class="tsd-anchor"></a>
 							<h3>Bishop</h3>
 							<div class="tsd-signature tsd-kind-icon">Bishop<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.BLACK, Types.BISHOP, Evaluates.bishop)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L367">validator.ts:367</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L381">validator.ts:381</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.black.king" class="tsd-anchor"></a>
+							<a name="pieces.black-1.king" class="tsd-anchor"></a>
 							<h3>King</h3>
 							<div class="tsd-signature tsd-kind-icon">King<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.BLACK, Types.KING, Evaluates.king)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L371">validator.ts:371</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L385">validator.ts:385</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.black.knight" class="tsd-anchor"></a>
+							<a name="pieces.black-1.knight" class="tsd-anchor"></a>
 							<h3>Knight</h3>
 							<div class="tsd-signature tsd-kind-icon">Knight<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.BLACK, Types.KNIGHT, Evaluates.knight)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L368">validator.ts:368</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L382">validator.ts:382</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.black.pawn" class="tsd-anchor"></a>
+							<a name="pieces.black-1.pawn" class="tsd-anchor"></a>
 							<h3>Pawn</h3>
 							<div class="tsd-signature tsd-kind-icon">Pawn<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.BLACK, Types.PAWN, Evaluates.pawn)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L366">validator.ts:366</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L380">validator.ts:380</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.black.queen" class="tsd-anchor"></a>
+							<a name="pieces.black-1.queen" class="tsd-anchor"></a>
 							<h3>Queen</h3>
 							<div class="tsd-signature tsd-kind-icon">Queen<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.BLACK, Types.QUEEN, Evaluates.queen)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L370">validator.ts:370</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L384">validator.ts:384</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.black.rook" class="tsd-anchor"></a>
+							<a name="pieces.black-1.rook" class="tsd-anchor"></a>
 							<h3>Rook</h3>
 							<div class="tsd-signature tsd-kind-icon">Rook<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.BLACK, Types.ROOK, Evaluates.rook)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L369">validator.ts:369</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L383">validator.ts:383</a></li>
 								</ul>
 							</aside>
 						</section>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
-						<a name="pieces.white" class="tsd-anchor"></a>
+						<a name="pieces.white-1" class="tsd-anchor"></a>
 						<h3>White</h3>
 						<div class="tsd-signature tsd-kind-icon">White<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L357">validator.ts:357</a></li>
+								<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L371">validator.ts:371</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.white.bishop-1" class="tsd-anchor"></a>
+							<a name="pieces.white-1.bishop-1" class="tsd-anchor"></a>
 							<h3>Bishop</h3>
 							<div class="tsd-signature tsd-kind-icon">Bishop<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.WHITE, Types.BISHOP, Evaluates.bishop)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L359">validator.ts:359</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L373">validator.ts:373</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.white.king-1" class="tsd-anchor"></a>
+							<a name="pieces.white-1.king-1" class="tsd-anchor"></a>
 							<h3>King</h3>
 							<div class="tsd-signature tsd-kind-icon">King<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.WHITE, Types.KING, Evaluates.king)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L363">validator.ts:363</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L377">validator.ts:377</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.white.knight-1" class="tsd-anchor"></a>
+							<a name="pieces.white-1.knight-1" class="tsd-anchor"></a>
 							<h3>Knight</h3>
 							<div class="tsd-signature tsd-kind-icon">Knight<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.WHITE, Types.KNIGHT, Evaluates.knight)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L360">validator.ts:360</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L374">validator.ts:374</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.white.pawn-1" class="tsd-anchor"></a>
+							<a name="pieces.white-1.pawn-1" class="tsd-anchor"></a>
 							<h3>Pawn</h3>
 							<div class="tsd-signature tsd-kind-icon">Pawn<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.WHITE, Types.PAWN, Evaluates.pawn)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L358">validator.ts:358</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L372">validator.ts:372</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.white.queen-1" class="tsd-anchor"></a>
+							<a name="pieces.white-1.queen-1" class="tsd-anchor"></a>
 							<h3>Queen</h3>
 							<div class="tsd-signature tsd-kind-icon">Queen<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.WHITE, Types.QUEEN, Evaluates.queen)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L362">validator.ts:362</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L376">validator.ts:376</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="pieces.white.rook-1" class="tsd-anchor"></a>
+							<a name="pieces.white-1.rook-1" class="tsd-anchor"></a>
 							<h3>Rook</h3>
 							<div class="tsd-signature tsd-kind-icon">Rook<span class="tsd-signature-symbol">:</span> <a href="../classes/_validator_.square.html" class="tsd-signature-type">Square</a><span class="tsd-signature-symbol"> = new Square(Colors.WHITE, Types.ROOK, Evaluates.rook)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/validator.ts#L361">validator.ts:361</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/validator.ts#L375">validator.ts:375</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -380,9 +422,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../enums/_validator_.additives.html" class="tsd-kind-icon">Additives</a>
-					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/_validator_.colors.html" class="tsd-kind-icon">Colors</a>
 					</li>
@@ -394,6 +433,9 @@
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/_validator_.square.html" class="tsd-kind-icon">Square</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_validator_.html#castling" class="tsd-kind-icon">Castling</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_validator_.html#chessboard" class="tsd-kind-icon">Chessboard</a>

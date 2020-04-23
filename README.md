@@ -64,7 +64,7 @@ const chess: Chess = new Chess();
 
 chess.import("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0");
 
-const chessboard: string = chess.ascii();
+const chessboard: string = chess.unicode();
 
 console.log(chessboard);
 ```
@@ -74,7 +74,7 @@ Or you can import the expression directly in the class `constructor`:
 ```typescript
 const chess: Chess = new Chess("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0");
 
-const chessboard: string = chess.ascii();
+const chessboard: string = chess.unicode();
 
 console.log(chessboard);
 ```

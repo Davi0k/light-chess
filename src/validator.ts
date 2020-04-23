@@ -68,6 +68,20 @@ export type Chessboard = [
 ];
 
 /**
+ * Type-Alias which represents both short and long castling status for white and black player.
+ */
+export type Castling = {
+    white: {
+        short: boolean,
+        long: boolean
+    },
+    black: {
+        short: boolean,
+        long: boolean
+    }
+};
+
+/**
  * Core of the chess-engine, contains useful functions to evaluates moves and matches.
  */
 export namespace Validator {

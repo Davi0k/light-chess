@@ -114,13 +114,13 @@ cd light-chess</code></pre><p>Then install all the required packages using <code
 
 chess.import(<span class="hljs-string">"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0"</span>);
 
-<span class="hljs-keyword">const</span> chessboard: <span class="hljs-built_in">string</span> = chess.ascii();
+<span class="hljs-keyword">const</span> chessboard: <span class="hljs-built_in">string</span> = chess.unicode();
 
 <span class="hljs-built_in">console</span>.log(chessboard);</code></pre>
 				<p>Or you can import the expression directly in the class <code>constructor</code>:</p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> chess: Chess = <span class="hljs-keyword">new</span> Chess(<span class="hljs-string">"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0"</span>);
 
-<span class="hljs-keyword">const</span> chessboard: <span class="hljs-built_in">string</span> = chess.ascii();
+<span class="hljs-keyword">const</span> chessboard: <span class="hljs-built_in">string</span> = chess.unicode();
 
 <span class="hljs-built_in">console</span>.log(chessboard);</code></pre>
 				<a href="#exporting-a-match-into-a-fen-expression" id="exporting-a-match-into-a-fen-expression" style="color: inherit; text-decoration: none;">
@@ -149,9 +149,9 @@ chess.import(<span class="hljs-string">"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQK
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print</span>(<span class="hljs-params">chess: Chess</span>): <span class="hljs-title">void</span> </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Current turn: <span class="hljs-subst">${chess.turn ? <span class="hljs-string">"BLACK"</span> : <span class="hljs-string">"WHITE"</span>}</span>`</span>);
 
-    <span class="hljs-keyword">const</span> ascii: <span class="hljs-built_in">string</span> = chess.ascii();
+    <span class="hljs-keyword">const</span> unicode: <span class="hljs-built_in">string</span> = chess.unicode();
 
-    <span class="hljs-built_in">console</span>.log(ascii + <span class="hljs-string">"\n"</span>);
+    <span class="hljs-built_in">console</span>.log(unicode + <span class="hljs-string">"\n"</span>);
 
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Insert a valid move: (example: e2 e4)"</span>);
 }

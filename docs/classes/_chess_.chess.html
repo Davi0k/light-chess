@@ -111,16 +111,17 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#ascii" class="tsd-kind-icon">ascii</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#check" class="tsd-kind-icon">check</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#export" class="tsd-kind-icon">export</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#import" class="tsd-kind-icon">import</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#legals" class="tsd-kind-icon">legals</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#move" class="tsd-kind-icon">move</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#possibilities" class="tsd-kind-icon">possibilities</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#unicode" class="tsd-kind-icon">unicode</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_chess_.chess.html#validate" class="tsd-kind-icon">validate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_chess_.chess.html#ascii-1" class="tsd-kind-icon">ascii</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_chess_.chess.html#decode" class="tsd-kind-icon">decode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_chess_.chess.html#encode" class="tsd-kind-icon">encode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_chess_.chess.html#unicode-1" class="tsd-kind-icon">unicode</a></li>
 							</ul>
 						</section>
 					</div>
@@ -138,7 +139,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L40">chess.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L40">chess.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -152,7 +153,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> layout: <a href="../modules/_validator_.html#chessboard" class="tsd-signature-type">Chessboard</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = Chess.layout</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The layout of the chessboard at the beginning of the match, if ignored the default layout will be <code>Chess.layout</code>.</p>
+											<p>The layout of the chessboard at the beginning of the match, if ignored the default layout will be <code>Chess.layout</code>. It can be a Chessboard object or a FEN expression.</p>
 										</div>
 									</div>
 								</li>
@@ -170,7 +171,7 @@
 					<div class="tsd-signature tsd-kind-icon">checkmate<span class="tsd-signature-symbol">:</span> <a href="../enums/_validator_.colors.html" class="tsd-signature-type">Colors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L40">chess.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L40">chess.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -190,7 +191,7 @@
 					<div class="tsd-signature tsd-kind-icon">chessboard<span class="tsd-signature-symbol">:</span> <a href="../modules/_validator_.html#chessboard" class="tsd-signature-type">Chessboard</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L27">chess.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L27">chess.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -205,7 +206,7 @@
 					<div class="tsd-signature tsd-kind-icon">turn<span class="tsd-signature-symbol">:</span> <a href="../enums/_validator_.colors.html" class="tsd-signature-type">Colors</a><span class="tsd-signature-symbol"> = Colors.WHITE</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L32">chess.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L32">chess.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -220,7 +221,7 @@
 					<div class="tsd-signature tsd-kind-icon">layout<span class="tsd-signature-symbol">:</span> <a href="../modules/_validator_.html#chessboard" class="tsd-signature-type">Chessboard</a><span class="tsd-signature-symbol"> = [[ Pieces.White.Rook, Pieces.White.Knight, Pieces.White.Bishop, Pieces.White.Queen, Pieces.White.King, Pieces.White.Bishop, Pieces.White.Knight, Pieces.White.Rook ],[ Pieces.White.Pawn, Pieces.White.Pawn, Pieces.White.Pawn, Pieces.White.Pawn, Pieces.White.Pawn, Pieces.White.Pawn, Pieces.White.Pawn, Pieces.White.Pawn ],[ Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty ],[ Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty ],[ Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty ],[ Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty, Pieces.Empty ],[ Pieces.Black.Pawn, Pieces.Black.Pawn, Pieces.Black.Pawn, Pieces.Black.Pawn, Pieces.Black.Pawn, Pieces.Black.Pawn, Pieces.Black.Pawn, Pieces.Black.Pawn ],[ Pieces.Black.Rook, Pieces.Black.Knight, Pieces.Black.Bishop, Pieces.Black.Queen, Pieces.Black.King, Pieces.Black.Bishop, Pieces.Black.Knight, Pieces.Black.Rook ],]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L13">chess.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L13">chess.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -233,34 +234,6 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="ascii" class="tsd-anchor"></a>
-					<h3>ascii</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">ascii<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L148">chess.ts:148</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates an ASCII string which represents the current chessboard layout.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>Non-static wrapper for respective <code>Chess.ascii</code> static method.</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>The created ASCII string.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="check" class="tsd-anchor"></a>
 					<h3>check</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -270,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L137">chess.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L136">chess.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -309,7 +282,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L244">chess.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L262">chess.ts:262</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,7 +305,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L188">chess.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L206">chess.ts:206</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -372,7 +345,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L112">chess.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L111">chess.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -411,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L61">chess.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L60">chess.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -443,7 +416,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L125">chess.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L124">chess.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -481,6 +454,34 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="unicode" class="tsd-anchor"></a>
+					<h3>unicode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">unicode<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L147">chess.ts:147</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates an UTF-16 string which represents the current chessboard layout.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Non-static wrapper for respective <code>Chess.unicode</code> static method.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The created UNICODE string.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="validate" class="tsd-anchor"></a>
 					<h3>validate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -490,7 +491,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L100">chess.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L99">chess.ts:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -520,38 +521,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="ascii-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> ascii</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">ascii<span class="tsd-signature-symbol">(</span>chessboard<span class="tsd-signature-symbol">: </span><a href="../modules/_validator_.html#chessboard" class="tsd-signature-type">Chessboard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L308">chess.ts:308</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates an ASCII string which represents the current chessboard layout.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>chessboard: <a href="../modules/_validator_.html#chessboard" class="tsd-signature-type">Chessboard</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The chessboard layout to represent.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>The created ASCII string.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="decode" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> decode</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
@@ -561,7 +530,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/736b7f4/src/chess.ts#L158">chess.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L157">chess.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -584,7 +553,76 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../modules/_validator_.html#coordinate" class="tsd-signature-type">Coordinate</a></h4>
-							<p>The respective <code>Coordinate</code> object, if the string format is not valid the function will return <code>null</code>.</p>
+							<p>The respective <code>Coordinate</code> object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="encode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> encode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">encode<span class="tsd-signature-symbol">(</span>square<span class="tsd-signature-symbol">: </span><a href="../modules/_validator_.html#coordinate" class="tsd-signature-type">Coordinate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L184">chess.ts:184</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts a <code>Coordinate</code> object to the respective string format coordinate.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the <code>Coordinate</code> object contains an invalid row or column, the method will throw an Error.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>square: <a href="../modules/_validator_.html#coordinate" class="tsd-signature-type">Coordinate</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The selected square of the chessboard expressed using a <code>Coordinate</code> object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The respective string format coordinate.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="unicode-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> unicode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">unicode<span class="tsd-signature-symbol">(</span>chessboard<span class="tsd-signature-symbol">: </span><a href="../modules/_validator_.html#chessboard" class="tsd-signature-type">Chessboard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Davi0k/light-chess/blob/609a7a1/src/chess.ts#L309">chess.ts:309</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates an UTF-16 string which represents the current chessboard layout.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>chessboard: <a href="../modules/_validator_.html#chessboard" class="tsd-signature-type">Chessboard</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The chessboard layout to represent.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The created UNICODE string.</p>
 						</li>
 					</ul>
 				</section>
@@ -627,9 +665,6 @@
 								<a href="_chess_.chess.html#layout" class="tsd-kind-icon">layout</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_chess_.chess.html#ascii" class="tsd-kind-icon">ascii</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_chess_.chess.html#check" class="tsd-kind-icon">check</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -648,13 +683,19 @@
 								<a href="_chess_.chess.html#possibilities" class="tsd-kind-icon">possibilities</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_chess_.chess.html#unicode" class="tsd-kind-icon">unicode</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_chess_.chess.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_chess_.chess.html#ascii-1" class="tsd-kind-icon">ascii</a>
+								<a href="_chess_.chess.html#decode" class="tsd-kind-icon">decode</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_chess_.chess.html#decode" class="tsd-kind-icon">decode</a>
+								<a href="_chess_.chess.html#encode" class="tsd-kind-icon">encode</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_chess_.chess.html#unicode-1" class="tsd-kind-icon">unicode</a>
 							</li>
 						</ul>
 					</li>
