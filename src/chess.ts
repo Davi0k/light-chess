@@ -1,4 +1,4 @@
-import { Colors, Validations, Coordinate, Movement, Chessboard, Validator, Square, Pieces, Row, Types } from "./validator";
+import { Colors, Validations, Coordinate, Movement, Chessboard, Castling, Validator, Square, Pieces, Row, Types } from "./validator";
 
 /** 
  * Main class to handle Chess match using light-chess.

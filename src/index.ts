@@ -6,6 +6,7 @@ export {
     Movement, 
     Chessboard,
     Row, 
+    Castling,
     Validator, 
     Square, 
     Pieces 
