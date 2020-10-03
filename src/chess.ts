@@ -1,4 +1,14 @@
-import { Colors, Validations, Coordinate, Movement, Chessboard, Castling, Validator, Square, Pieces, Row, Types } from "./validator";
+import { 
+    Colors, 
+    Validations, 
+    Coordinate,
+    Movement, 
+    Chessboard, 
+    Validator, 
+    Square, 
+    Pieces, 
+    Row 
+} from "./validator";
 
 /** 
  * Main class to handle Chess match using light-chess.
@@ -316,7 +326,7 @@ export class Chess {
             return piece.color ? black[piece.type] : white[piece.type];
         };
 
-        let ascii: string = "";
+        let unicode: string = "";
 
         for(let row = chessboard.length - 1; row >= 0; row--) {
             let append: string = (row + 1) + " |";
@@ -324,11 +334,11 @@ export class Chess {
             for(const column in chessboard[row]) 
                 append = append + emoji(chessboard[row][column]) + " |";
 
-            ascii = ascii + append + "\n";
+            unicode = unicode + append + "\n";
         }
 
-        ascii = ascii + ("   A  B  C  D  E  F  G  H");
+        unicode = unicode + ("   A  B  C  D  E  F  G  H");
     
-        return ascii;
+        return unicode;
     }
 }
